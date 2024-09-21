@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girasol</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            overflow-x: hidden;
+        }
+
+        .sunflower {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: appear 2s ease-out forwards;
+        }
+
+        .stem {
+            width: 0.5vw;
+            height: 25vh;
+            background-color: green;
+            position: relative;
+        }
+
+        .leaf {
+            position: absolute;
+            width: 5vw;
+            height: 2.5vw;
+            background-color: green;
+            border-radius: 50%;
+        }
+
+        .leaf:nth-child(1) {
+            left: -4vw;
+            top: 10vh;
+        }
+
+        .leaf:nth-child(2) {
+            right: -4vw;
+            top: 15vh;
+        }
+
+        .flower-center {
+            width: 10vw;
+            height: 10vw;
+            background-color: brown;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            transform: translateY(-5vw);
+            /* Este valor moverá la flor hacia arriba */
+        }
+
+        .petal {
+            position: absolute;
+            width: 4vw;
+            height: 8vw;
+            background-color: yellow;
+            border-radius: 50% 50% 0 0;
+            transform-origin: bottom center;
+            animation: sway 3s infinite ease-in-out;
+        }
+
+        /* Posicionamiento correcto de pétalos con respecto al centro */
+        .flower-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .petal:nth-child(1) {
+            transform: rotate(0deg) translate(0, -4vw);
+        }
+
+        .petal:nth-child(2) {
+            transform: rotate(30deg) translate(0, -4vw);
+        }
+
+        .petal:nth-child(3) {
+            transform: rotate(60deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(4) {
+            transform: rotate(90deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(5) {
+            transform: rotate(120deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(6) {
+            transform: rotate(150deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(7) {
+            transform: rotate(180deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(8) {
+            transform: rotate(210deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(9) {
+            transform: rotate(240deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(10) {
+            transform: rotate(270deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(11) {
+            transform: rotate(300deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+        .petal:nth-child(12) {
+            transform: rotate(330deg) translate(0, -4vw);
+            /* Ajusta este valor */
+        }
+
+
+        /* Animación de balanceo */
+        @keyframes sway {
+
+            0%,
+            100% {
+                transform: rotate(var(--rotate)) translate(var(--translateX), var(--translateY)) rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(var(--rotate)) translate(var(--translateX), var(--translateY)) rotate(10deg);
+            }
+        }
+
+        /* Aplicando valores para cada pétalo con animación */
+        .petal:nth-child(1) {
+            --rotate: 0deg;
+            --translateX: 0;
+            --translateY: -8.5vw;
+        }
+
+        .petal:nth-child(2) {
+            --rotate: 30deg;
+            --translateX: -1.5vw;
+            --translateY: -7.5vw;
+        }
+
+        .petal:nth-child(3) {
+            --rotate: 60deg;
+            --translateX: -3vw;
+            --translateY: -6vw;
+        }
+
+        .petal:nth-child(4) {
+            --rotate: 90deg;
+            --translateX: -3vw;
+            --translateY: -4vw;
+        }
+
+        .petal:nth-child(5) {
+            --rotate: 120deg;
+            --translateX: -4vw;
+            --translateY: -2vw;
+        }
+
+        .petal:nth-child(6) {
+            --rotate: 150deg;
+            --translateX: -3vw;
+            --translateY: 0vw;
+        }
+
+        .petal:nth-child(7) {
+            --rotate: 180deg;
+            --translateX: 0vw;
+            --translateY: 1vw;
+        }
+
+        .petal:nth-child(8) {
+            --rotate: 210deg;
+            --translateX: 2vw;
+            --translateY: 0vw;
+        }
+
+        .petal:nth-child(9) {
+            --rotate: 240deg;
+            --translateX: 3vw;
+            --translateY: -2vw;
+        }
+
+        .petal:nth-child(10) {
+            --rotate: 270deg;
+            --translateX: 3vw;
+            --translateY: -4vw;
+        }
+
+        .petal:nth-child(11) {
+            --rotate: 300deg;
+            --translateX: 3vw;
+            --translateY: -6vw;
+        }
+
+        .petal:nth-child(12) {
+            --rotate: 330deg;
+            --translateX: 2vw;
+            --translateY: -8vw;
+        }
+
+        /* Animación de aparición */
+        @keyframes appear {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Estilos responsivos adicionales */
+        @media (min-width: 768px) {
+            .stem {
+                height: 35vh;
+            }
+
+            .flower-center {
+                width: 12vw;
+                height: 12vw;
+            }
+
+            .petal {
+                width: 5vw;
+                height: 10vw;
+            }
+        }
+
+        /* Estilo para el texto al final */
+        .footer-text {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin-top: 20px;
+            text-align: center;
+            max-width: 90vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sunflower">
+        <div class="flower-center">
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+        </div>
+        <div class="stem">
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+        </div>
+    </div>
+
+    <div class="footer-text">
+        Recibe esta flor amarilla, un gesto de cariño, por si hoy no has recibido lo que mereces.
+    </div>
+</body>
+
+</html>
